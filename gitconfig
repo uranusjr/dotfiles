@@ -1,0 +1,34 @@
+[user]
+	name = Tzu-ping Chung
+    email = uranusjr@gmail.com
+[color]
+	log = auto
+	branch = true
+	status = true
+	diff = true
+	ui = true
+	interactive = true
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[push]
+	default = simple
+[alias]
+    ad = add
+	st = status
+	ci = commit
+	co = checkout
+    unstage = reset HEAD --
+    uncommit = reset HEAD^
+    br = branch
+    cp = cherry-pick
+    rb = rebase
+    graph = log --graph --decorate --oneline --all
+    bb = bitbucket
+    gr = log --graph --decorate --oneline --all
+    man = help
+	git = "!function f() { git %@ }; f"
