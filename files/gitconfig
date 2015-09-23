@@ -31,3 +31,4 @@
     gr = log --graph --decorate --oneline --all
     man = help
     git = "!function f() { git %@ }; f"
+    gut = git

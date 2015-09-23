@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import argparse
+import pathlib
+import sys
+
+
+parser = argparse.ArgumentParser(description='Link dotfiles home.')
+parser.add_argument(
+    'names', metavar='filename', nargs='*',
+    help='name of files to link (without leading dot)',
+)
+parser.add_argument(
+    '--all', dest='linkall', action='store_const', const=True,
+    help='link all available files',
+)
+parser.add_argument(
+    '--force', dest='force', action='store_const', const=True,
+    help='overwrite existing files',
+)
+
+
+home = pathlib.Path.home()
+curr = pathlib.Path(__file__).resolve().parent / 'files'
+
+
+def warn(msg):
+    print(msg, file=sys.stderr)
+
+
+def make_path_gen(names):
+    for name in names:
+        path = curr / name
+        if not path.exists():
+            warn('Warning: not found "{}"'.format(path))
+            continue
+        yield path
+
+
+def link(*, names, force):
+    if names is None:
+        paths = curr.iterdir()
+    else:
+        paths = make_path_gen(names)
+    for source in paths:
+        target = home / ('.' + source.stem)
+        if target.exists():
+            if force:
+                warn('NOTE: removing "{}"'.format(target))
+                target.unlink()
+            else:
+                warn('NOTE: skipping "{}"'.format(target))
+                continue
+        target.symlink_to(source)
+        print('{} -> {}'.format(target, source))
+
+
+def main():
+    args = parser.parse_args()
+    force = args.force
+    if args.linkall:
+        if args.names:
+            warn('usage: {} --all'.format(sys.argv[0]))
+            sys.exit(1)
+        link(names=None, force=force)
+    else:
+        if not args.names:
+            warn('filenames not specified')
+            sys.exit(1)
+        link(names=args.names, force=force)
+
+
+if __name__ == '__main__':
+    main()
