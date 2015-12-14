@@ -17,6 +17,7 @@
 [push]
     default = simple
 [alias]
+    s = status
     ad = add
     st = status
     ci = commit
