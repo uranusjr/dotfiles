@@ -393,8 +393,15 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+:set number
+:set pastetoggle=<F2>
+
 " vim-plug configuration
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-github-dashboard'
+Plug 'scrooloose/nerdtree'
 call plug#end()
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
