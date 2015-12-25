@@ -13,12 +13,6 @@ alias mongo_run='ulimit -n 2048 && mongod --config /usr/local/etc/mongod.conf'
 alias pinknoise='play -t sl -r 8k -c 2 - synth 30:00:00 pinknoise band -n 1200 200 tremolo 20 .1 </dev/zero 2</dev/null'
 alias qmake5="/usr/local/Cellar/qt5/$(ls /usr/local/Cellar/qt5 | tail -n 1)/bin/qmake"
 
-alias ll='ls -aFhl'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias gut=git
-
 killport() {
     lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9
 }
@@ -28,7 +22,7 @@ set-title() {
 }
 
 macdown() {
-    "$(mdfind kMDItemCFBundleIdentifier=com.uranusjr.macdown | head -n1)/Contents/SharedSupport/bin/macdown" $@
+    "$(mdfind kMDItemCFBundleIdentifier=com.uranusjr.macdown | awk '!/\/Users/{print;exit}')/Contents/SharedSupport/bin/macdown" $@
 }
 
 subl() {
@@ -55,10 +49,17 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source '/usr/local/bin/virtualenvwrapper.sh'
 source '/usr/local/opt/autoenv/activate.sh'
 
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which -s pyenv; then eval "$(pyenv init -)"; fi
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which -s rbenv; then eval "$(rbenv init -)"; fi
 PATH="$HOME/.rbenv/shims:$PATH"
+
+alias ll='ls -aFhl'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias gut=git
+alias which=gwhich
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
 

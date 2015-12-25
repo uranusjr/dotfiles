@@ -6,4 +6,3 @@
 .codeintel/
 *.pro.user*
 CMakeLists.txt.user
-.env
