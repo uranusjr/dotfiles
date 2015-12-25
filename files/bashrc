@@ -49,9 +49,9 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source '/usr/local/bin/virtualenvwrapper.sh'
 source '/usr/local/opt/autoenv/activate.sh'
 
-if which -s pyenv; then eval "$(pyenv init -)"; fi
+if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
 
-if which -s rbenv; then eval "$(rbenv init -)"; fi
+if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
 PATH="$HOME/.rbenv/shims:$PATH"
 
 alias ll='ls -aFhl'
