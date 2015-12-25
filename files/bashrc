@@ -3,7 +3,9 @@ PATH="$HOME/usr/local/bin":'/usr/local/bin':'/usr/local/sbin':$PATH
 export PS1='\[\033[0;32m\]\u@\h \[\033[1;34m\]\W $ \[\033[m\]'
 
 source '/usr/local/etc/bash_completion.d/git-completion.bash'
-source "$HOME/.bash_completions/django"
+for f in $(ls $HOME/.bash_completions/*.bash); do
+    source "$f"
+done
 
 alias pg_run='postgres -D /usr/local/var/postgres'
 alias my_run='mysql.server start'
