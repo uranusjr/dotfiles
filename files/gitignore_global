@@ -2,7 +2,6 @@
 .DS_Store
 *.sublime-project
 *.sublime-workspace
-.editorconfig
 .codeintel/
 *.pro.user*
 CMakeLists.txt.user
