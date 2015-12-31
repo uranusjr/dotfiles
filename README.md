@@ -1,6 +1,6 @@
 # My Dot Files
 
-A collection of useful dotfiles. Many OS X-specifi things, and require certain dependencies, e.g. Homebrew formulae (git-completions), rbenv, pyenv.
+A collection of useful dotfiles. Many OS X-specific things, and require certain dependencies, e.g. Homebrew formulae (git-completions), rbenv, pyenv.
 
 ## Usage
 
