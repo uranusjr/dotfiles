@@ -30,8 +30,13 @@ subl() {
 }
 
 mkvenv() {
-    $(python3 -c "import sys; print(sys.executable)") -m venv $1
-    . $1/bin/activate
+    VENV_DIR=$1
+    if [ -z "$VENV_DIR" ]; then
+        VENV_DIR="venv/$(basename $PWD)"
+    fi
+    echo "Creating venv at $VENV_DIR"
+    $(python3 -c "import sys; print(sys.executable)") -m venv $VENV_DIR
+    . $VENV_DIR/bin/activate
     pip install -qU pip setuptools
 }
 
