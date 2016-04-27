@@ -76,12 +76,16 @@ if [ $(docker-machine status $DOCKERVM) != 'Running' ]; then
 fi
 docker-machine-source
 
+export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
+
 alias ll='ls -aFhl'
 alias la='ls -A'
 alias l='ls -CF'
 
 alias gut=git
 alias which=gwhich
+
+export PGDATA=/usr/local/var/postgres
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
