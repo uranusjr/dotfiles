@@ -83,6 +83,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias gut=git
+alias fit=git
 alias which=gwhich
 
 export PGDATA=/usr/local/var/postgres
