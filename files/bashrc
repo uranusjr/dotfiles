@@ -52,7 +52,9 @@ export WORKON_HOME=$HOME/Documents/programming/virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source '/usr/local/bin/virtualenvwrapper.sh'
-source '/usr/local/opt/autoenv/activate.sh'
+
+export AUTOENV_ENV_FILENAME='.autoenv'
+source "$HOME/Documents/programming/misc/autoenv/autoenv/activate.sh"
 
 if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
 
