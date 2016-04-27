@@ -61,6 +61,21 @@ if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
 if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
 PATH="$HOME/.rbenv/shims:$PATH"
 
+export DOCKERVM=docker-vm
+
+docker-machine-source() {
+    eval $(docker-machine env $DOCKERVM)
+}
+docker-machine-reload() {
+    docker-machine restart $DOCKERVM
+    docker-machine-source
+}
+
+if [ $(docker-machine status $DOCKERVM) != 'Running' ]; then
+    docker-machine start $DOCKERVM
+fi
+docker-machine-source
+
 alias ll='ls -aFhl'
 alias la='ls -A'
 alias l='ls -CF'
