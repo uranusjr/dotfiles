@@ -29,10 +29,13 @@
     uncommit = reset HEAD^
     br = branch
     cp = cherry-pick
+    dif = diff
     rb = rebase
     graph = log --graph --decorate --oneline --all
     bb = bitbucket
     gr = log --graph --decorate --oneline --all
     man = help
-    git = "!function f() { git %@ }; f"
+    hub = !hub
+    git = !git
     gut = git
+    got = git
