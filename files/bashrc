@@ -1,4 +1,4 @@
-PATH="$HOME/usr/local/bin":'/usr/local/bin':'/usr/local/sbin':$PATH
+PATH='/usr/local/sbin':"$HOME/usr/local/bin":$PATH
 
 export PS1='\[\033[0;32m\]\u@\h \[\033[1;34m\]\W $ \[\033[m\]'
 
