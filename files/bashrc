@@ -85,6 +85,7 @@ alias l='ls -CF'
 alias gut=git
 alias fit=git
 alias which=gwhich
+alias git=hub   # https://hub.github.com
 
 export PGDATA=/usr/local/var/postgres
 
