@@ -63,6 +63,7 @@ PATH="$HOME/.rbenv/shims:$PATH"
 
 export DOCKERVM=docker-vm
 
+eval $(thefuck --alias)
 
 export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
 
@@ -74,6 +75,8 @@ alias gut=git
 alias fit=git
 alias which=gwhich
 alias git=hub   # https://hub.github.com
+
+alias weather='curl wttr.in/taipei'
 
 export PGDATA=/usr/local/var/postgres
 
