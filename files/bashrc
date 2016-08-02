@@ -37,7 +37,7 @@ mkvenv() {
     echo "Creating venv at $VENV_DIR"
     $(python3 -c "import sys; print(sys.executable)") -m venv $VENV_DIR
     . $VENV_DIR/bin/activate
-    pip install -qU pip setuptools
+    pip install --disable-pip-version-check -qU pip setuptools
 }
 
 export CLICOLOR=1
