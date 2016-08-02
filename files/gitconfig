@@ -1,44 +1,44 @@
 [user]
-    name = Tzu-ping Chung
-    email = uranusjr@gmail.com
+	name = Tzu-ping Chung
+	email = uranusjr@gmail.com
 [color]
-    log = auto
-    branch = true
-    status = true
-    diff = true
-    ui = true
-    interactive = true
+	log = auto
+	branch = true
+	status = true
+	diff = true
+	ui = true
+	interactive = true
 [core]
-    editor = vim
-    excludesfile = ~/.gitignore_global
+	editor = vim
+	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
 [pager]
-    diff = diff-so-fancy | less --tabs=4 -RFX
-    show = diff-so-fancy | less --tabs=4 -RFX
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
 [push]
-    default = simple
+	default = simple
 [alias]
-    s = status
-    ad = add
-    st = status
-    ci = commit
-    co = checkout
-    unstage = reset HEAD --
-    uncommit = reset HEAD^
-    br = branch
-    cp = cherry-pick
-    dif = diff
-    rb = rebase
-    graph = log --graph --decorate --oneline --all
-    bb = bitbucket
-    gr = log --graph --decorate --oneline --all
-    man = help
-    hub = !hub
-    git = !git
-    gut = git
-    got = git
+	s = status
+	ad = add
+	st = status
+	ci = commit
+	co = checkout
+	unstage = reset HEAD --
+	uncommit = reset HEAD^
+	br = branch
+	cp = cherry-pick
+	dif = diff
+	rb = rebase
+	graph = log --graph --decorate --oneline --all
+	bb = bitbucket
+	gr = log --graph --decorate --oneline --all
+	man = help
+	hub = !hub
+	git = !git
+	gut = git
+	got = git
 	branches = !legit branches
 	graft = !legit graft
 	harvest = !legit harvest
