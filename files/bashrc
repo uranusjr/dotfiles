@@ -71,6 +71,8 @@ alias ll='ls -aFhl'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias pbcopy='xargs echo -n | pbcopy'
+
 alias gut=git
 alias fit=git
 alias which=gwhich
