@@ -74,6 +74,7 @@ alias l='ls -CF'
 alias pbcopy='xargs echo -n | pbcopy'
 
 alias gut=git
+alias got=git
 alias fit=git
 alias which=gwhich
 alias git=hub   # https://hub.github.com
