@@ -2,10 +2,10 @@ PATH='/usr/local/sbin':"$HOME/usr/local/bin":$PATH
 
 export PS1='\[\033[0;32m\]\u@\h \[\033[1;34m\]\W $ \[\033[m\]'
 
-source '/usr/local/etc/bash_completion.d/git-completion.bash'
-for f in $(ls $HOME/.bash_completions/*.bash); do
-    source "$f"
-done
+# source '/usr/local/etc/bash_completion.d/git-completion.bash'
+# for f in $(ls $HOME/.bash_completions/*.bash); do
+#     source "$f"
+# done
 
 alias pg_run='pg_ctl start'
 alias my_run='mysql.server start'
@@ -19,10 +19,6 @@ killport() {
 
 set-title() {
     echo -n -e "\033]0;$1\007"
-}
-
-macdown() {
-    "$(mdfind kMDItemCFBundleIdentifier=com.uranusjr.macdown | awk '!/\/Users/{print;exit}')/Contents/SharedSupport/bin/macdown" $@
 }
 
 subl() {
@@ -48,22 +44,26 @@ export LC_ALL='en_US.UTF-8'
 
 export EDITOR=vim
 
-export WORKON_HOME=$HOME/Documents/programming/virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source '/usr/local/bin/virtualenvwrapper.sh'
-
 export AUTOENV_ENV_FILENAME='.autoenv'
 source "$HOME/Documents/programming/misc/autoenv/autoenv/activate.sh"
 
-if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
+# Do heavy initialization only for tmux. This keeps the bare bash setup snappy
+# without compromising too much for my dev workflow.
+if [ "$TERM" = 'screen' ] && [ -n "$TMUX" ]; then
+    export WORKON_HOME=$HOME/Documents/programming/virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+    source '/usr/local/bin/virtualenvwrapper.sh'
 
-if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
-PATH="$HOME/.rbenv/shims:$PATH"
+    if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
+
+    if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
+    PATH="$HOME/.rbenv/shims:$PATH"
+
+    eval $(thefuck --alias)
+fi
 
 export DOCKERVM=docker-vm
-
-eval $(thefuck --alias)
 
 export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
 
