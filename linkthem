@@ -44,7 +44,7 @@ def link(*, names, force):
     else:
         paths = make_path_gen(names)
     for source in paths:
-        target = home / ('.' + source.stem)
+        target = home / ('.' + source.name)
         if target.exists():
             if force:
                 warn('NOTE: removing "{}"'.format(target))
