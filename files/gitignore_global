@@ -5,3 +5,4 @@
 .codeintel/
 *.pro.user*
 CMakeLists.txt.user
+.autoenv
