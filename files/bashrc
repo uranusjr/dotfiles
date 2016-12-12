@@ -67,7 +67,7 @@ alias ll='ls -aFhl'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias pbcopy='xargs echo -n | pbcopy'
+alias pbcopy='striptnl | pbcopy'
 
 alias gut=git
 alias got=git
