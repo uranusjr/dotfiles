@@ -2,11 +2,6 @@ PATH='/usr/local/sbin':"$HOME/usr/local/bin":$PATH
 
 export PS1='\[\033[0;32m\]\u@\h \[\033[1;34m\]\W $ \[\033[m\]'
 
-# source '/usr/local/etc/bash_completion.d/git-completion.bash'
-# for f in $(ls $HOME/.bash_completions/*.bash); do
-#     source "$f"
-# done
-
 alias pg_run='pg_ctl start'
 alias my_run='mysql.server start'
 alias mongo_run='ulimit -n 2048 && mongod --fork --config /usr/local/etc/mongod.conf'
@@ -47,21 +42,22 @@ export EDITOR=vim
 export AUTOENV_ENV_FILENAME='.autoenv'
 source "$HOME/Documents/programming/misc/autoenv/autoenv/activate.sh"
 
-# Do heavy initialization only for tmux. This keeps the bare bash setup snappy
-# without compromising too much for my dev workflow.
-if [ "$TERM" = 'screen' ] && [ -n "$TMUX" ]; then
-    export WORKON_HOME=$HOME/Documents/programming/virtualenvs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-    source '/usr/local/bin/virtualenvwrapper.sh'
+for f in $(ls /usr/local/etc/bash_completion.d/*); do
+    source "$f"
+done
+for f in $(ls $HOME/.bash_completions/*.bash); do
+    source "$f"
+done
 
-    if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
+export WORKON_HOME=$HOME/Documents/programming/virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source '/usr/local/bin/virtualenvwrapper.sh'
 
-    if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
-    PATH="$HOME/.rbenv/shims:$PATH"
+if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
 
-    eval $(thefuck --alias)
-fi
+if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
+PATH="$HOME/.rbenv/shims:$PATH"
 
 export DOCKERVM=docker-vm
 
