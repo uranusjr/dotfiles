@@ -1,6 +1,6 @@
 [user]
 	name = Tzu-ping Chung
-	email = uranusjr@gmail.com
+    email = uranusjr@gmail.com
 [color]
 	log = auto
 	branch = true
@@ -10,7 +10,11 @@
 	interactive = true
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
+[credential]
+    helper = osxkeychain
+[credential "https://github.com"]
+    username = uranusjr
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
