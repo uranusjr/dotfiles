@@ -63,6 +63,8 @@ if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
 if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
 PATH="$HOME/.rbenv/shims:$PATH"
 
+. "$HOME/.cargo/env"
+
 export DOCKERVM=docker-vm
 
 export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
