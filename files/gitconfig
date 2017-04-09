@@ -1,6 +1,7 @@
 [user]
 	name = Tzu-ping Chung
-    email = uranusjr@gmail.com
+	email = uranusjr@gmail.com
+	username = uranusjr
 [color]
 	log = auto
 	branch = true
@@ -17,7 +18,7 @@
     username = uranusjr
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+    path =
 [pager]
 	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX

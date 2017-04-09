@@ -6,3 +6,4 @@
 *.pro.user*
 CMakeLists.txt.user
 .autoenv
+.eggs/
