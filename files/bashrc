@@ -69,6 +69,8 @@ export DOCKERVM=docker-vm
 
 export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
 
+. "$HOME/.bash_secrets"
+
 alias ll='ls -aFhl'
 alias la='ls -A'
 alias l='ls -CF'
