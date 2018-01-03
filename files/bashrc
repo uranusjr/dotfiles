@@ -1,6 +1,10 @@
 PATH='/usr/local/sbin':"$HOME/usr/local/bin":$PATH
 
-export PS1='\[\033[0;32m\]\u@\h \[\033[1;34m\]\W $ \[\033[m\]'
+PS1='\[\033[0;32m\]\u@\h \[\033[1;34m\]\W $ \[\033[m\]'
+if [[ -n "$VIRTUAL_ENV" ]]; then
+    PS1="($(basename "$VIRTUAL_ENV")) $PS1"
+fi
+export PS1
 
 # Yeah, a lie.
 export SHELL='/usr/local/bin/bash'
