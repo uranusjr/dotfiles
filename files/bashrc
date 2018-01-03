@@ -57,11 +57,16 @@ for f in $(ls $HOME/.bash_completions/*.bash); do
     source "$f"
 done
 
-export WORKON_HOME=$HOME/Documents/programming/virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source '/usr/local/bin/virtualenvwrapper.sh'
 
+export WORKON_HOME="$HOME/Documents/programming/virtualenvs"
+export VIRTUALENVWRAPPER_PYTHON="$HOME/.local/venvs/virtualenvwrapper/bin/python"
+export VIRTUALENVWRAPPER_VIRTUALENV="$HOME/.local/venvs/virtualenvwrapper/bin/virtualenv"
+
+if [[ $SHLVL == '1' ]]; then
+    source "$HOME/.local/venvs/virtualenvwrapper/bin/virtualenvwrapper.sh"
+fi
+
+export PYENV_ROOT="$HOME/.pyenv"
 if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
 
 if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
