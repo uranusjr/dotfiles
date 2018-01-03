@@ -57,6 +57,7 @@ for f in $(ls $HOME/.bash_completions/*.bash); do
     source "$f"
 done
 
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 export WORKON_HOME="$HOME/Documents/programming/virtualenvs"
 export VIRTUALENVWRAPPER_PYTHON="$HOME/.local/venvs/virtualenvwrapper/bin/python"
@@ -72,7 +73,10 @@ if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
 if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
 PATH="$HOME/.rbenv/shims:$PATH"
 
-. "$HOME/.cargo/env"
+PATH="$HOME/.cargo/bin:$PATH"
+
+# Configure Pipsi.
+PATH="$HOME/.local/bin:$PATH"
 
 export DOCKERVM=docker-vm
 
@@ -80,11 +84,15 @@ export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-pr
 
 . "$HOME/.bash_secrets"
 
+# export PIPENV_DONT_LOAD_ENV=1
+export PIPENV_TIMEOUT=60
+
 alias ll='ls -aFhl'
 alias la='ls -A'
 alias l='ls -CF'
 
 alias pbcopy='striptnl | pbcopy'
+alias subl='"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"'
 
 alias gut=git
 alias got=git
@@ -92,6 +100,7 @@ alias fit=git
 alias which=gwhich
 alias git=hub   # https://hub.github.com
 
+alias openran='open "$(ls | gshuf -n 1)"'
 alias weather='curl wttr.in/taipei'
 
 export PGDATA=/usr/local/var/postgres
