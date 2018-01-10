@@ -67,11 +67,12 @@ if [[ $SHLVL == '1' ]]; then
     source "$HOME/.local/venvs/virtualenvwrapper/bin/virtualenvwrapper.sh"
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
+# export PYENV_ROOT="$HOME/.pyenv"
+# if 'which' -s pyenv; then eval "$(pyenv init -)"; fi
+
+PATH="$HOME/Library/PythonUp/bin:$HOME/Library/PythonUp/cmd:$PATH"
 
 if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
-PATH="$HOME/.rbenv/shims:$PATH"
 
 PATH="$HOME/.cargo/bin:$PATH"
 
@@ -99,6 +100,15 @@ alias got=git
 alias fit=git
 alias which=gwhich
 alias git=hub   # https://hub.github.com
+
+# Pretend this command does not exist.
+python() {
+    if [[ "$(which python)" == '/usr/bin/python' ]]; then
+        echo "bash: python: command not found" >&2 | echo >/dev/null
+    else
+        command python
+    fi
+}
 
 alias openran='open "$(ls | gshuf -n 1)"'
 alias weather='curl wttr.in/taipei'
