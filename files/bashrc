@@ -106,7 +106,7 @@ python() {
     if [[ "$(which python)" == '/usr/bin/python' ]]; then
         echo "bash: python: command not found" >&2 | echo >/dev/null
     else
-        command python
+        "$(which python)" "%@"
     fi
 }
 
