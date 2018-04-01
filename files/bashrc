@@ -24,10 +24,6 @@ set-title() {
     echo -n -e "\033]0;$1\007"
 }
 
-subl() {
-    "$(mdfind kMDItemCFBundleIdentifier=com.sublimetext.3 | head -n1)/Contents/SharedSupport/bin/subl" $@
-}
-
 mkvenv() {
     VENV_DIR=$1
     if [ -z "$VENV_DIR" ]; then
