@@ -53,3 +53,5 @@
 	sync = !legit sync
 	switch = !legit switch
 	resync = !legit resync
+[merge]
+	conflictstyle = diff3
