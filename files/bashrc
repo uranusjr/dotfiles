@@ -83,6 +83,7 @@ export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-pr
 
 # export PIPENV_DONT_LOAD_ENV=1
 export PIPENV_TIMEOUT=60
+export PIPENV_VENV_IN_PROJECT=1
 
 alias ll='ls -aFhl'
 alias la='ls -A'
