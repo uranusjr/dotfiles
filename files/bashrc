@@ -100,10 +100,11 @@ alias git=hub   # https://hub.github.com
 
 # Pretend this command does not exist.
 python() {
-    if [[ "$(which python)" == '/usr/bin/python' ]]; then
-        echo "bash: python: command not found" >&2 | echo >/dev/null
+    PYTHON="$(which python)"
+    if [[ "$PYTHON" == /usr/*  ]]; then
+        echo "python2 or python3, that is the question" >&2 | echo >/dev/null
     else
-        "$(which python)" "%@"
+        "$PYTHON" "$@"
     fi
 }
 
