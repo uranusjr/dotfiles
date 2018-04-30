@@ -14,7 +14,9 @@ alias my_run='mysql.server start'
 alias mongo_run='ulimit -n 2048 && mongod --fork --config /usr/local/etc/mongod.conf'
 alias redis_run='redis-server /usr/local/etc/redis.conf --daemonize yes'
 alias pinknoise='play -t sl -r 8k -c 2 - synth 30:00:00 pinknoise band -n 1200 200 tremolo 20 .1 </dev/zero 2</dev/null'
-alias qmake5="/usr/local/Cellar/qt5/$(ls /usr/local/Cellar/qt5 | tail -n 1)/bin/qmake"
+if [[ -d /usr/local/Cellar/qt5 ]]; then
+    alias qmake5="/usr/local/Cellar/qt5/$(ls /usr/local/Cellar/qt5 | tail -n 1)/bin/qmake"
+fi
 
 killport() {
     lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9
@@ -35,6 +37,18 @@ mkvenv() {
     pip install --disable-pip-version-check -qU pip setuptools
 }
 
+maybesource() {
+    if [[ -f "$1" ]]; then
+        . "$1"
+    fi
+}
+
+maybealias() {
+    if hash $2 2>/dev/null; then
+        alias $1=$2
+    fi
+}
+
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
@@ -44,7 +58,7 @@ export LC_ALL='en_US.UTF-8'
 export EDITOR=vim
 
 export AUTOENV_ENV_FILENAME='.autoenv'
-source "$HOME/Documents/programming/misc/autoenv/autoenv/activate.sh"
+maybesource "$HOME/.local/venvs/virtualenvwrapper/bin/virtualenvwrapper.sh"
 
 for f in $(ls /usr/local/etc/bash_completion.d/*); do
     source "$f"
@@ -60,7 +74,7 @@ export VIRTUALENVWRAPPER_PYTHON="$HOME/.local/venvs/virtualenvwrapper/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV="$HOME/.local/venvs/virtualenvwrapper/bin/virtualenv"
 
 if [[ $SHLVL == '1' ]]; then
-    source "$HOME/.local/venvs/virtualenvwrapper/bin/virtualenvwrapper.sh"
+    maybesource "$HOME/.local/venvs/virtualenvwrapper/bin/virtualenvwrapper.sh"
 fi
 
 # export PYENV_ROOT="$HOME/.pyenv"
@@ -79,7 +93,7 @@ export DOCKERVM=docker-vm
 
 export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
 
-. "$HOME/.bash_secrets"
+maybesource "$HOME/.bash_secrets"
 
 # export PIPENV_DONT_LOAD_ENV=1
 export PIPENV_TIMEOUT=60
@@ -95,8 +109,9 @@ alias subl='"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"'
 alias gut=git
 alias got=git
 alias fit=git
-alias which=gwhich
-alias git=hub   # https://hub.github.com
+
+maybealias which=gwhich
+maybealias git=hub   # https://hub.github.com
 
 # Pretend this command does not exist.
 python() {
