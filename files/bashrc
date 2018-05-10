@@ -1,8 +1,12 @@
 PATH='/usr/local/sbin':"$HOME/usr/local/bin":$PATH
 
 PS1='\[\033[0;32m\]\u@\h \[\033[1;34m\]\W $ \[\033[m\]'
-if [[ -n "$VIRTUAL_ENV" ]]; then
-    PS1="($(basename "$VIRTUAL_ENV")) $PS1"
+if [[ -d "$VIRTUAL_ENV" && -e "$VIRTUAL_ENV/bin/activate" ]]; then
+    VENV=$(pcregrep -o1 'PS1="\((.+)\)\$PS1' "$VIRTUAL_ENV/bin/activate")
+    if [[ -z "$VENV" ]]; then
+        VENV=$(basename "$VIRTUAL_ENV")
+    fi
+    PS1="($VENV) $PS1"
 fi
 export PS1
 
@@ -81,9 +85,9 @@ export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-pr
 
 . "$HOME/.bash_secrets"
 
-# export PIPENV_DONT_LOAD_ENV=1
 export PIPENV_TIMEOUT=60
 export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_SHELL_FANCY=1
 
 alias ll='ls -aFhl'
 alias la='ls -A'

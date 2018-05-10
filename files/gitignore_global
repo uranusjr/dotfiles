@@ -8,3 +8,4 @@ CMakeLists.txt.user
 .autoenv
 .eggs/
 .python-version
+.venv/
