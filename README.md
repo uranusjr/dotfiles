@@ -10,6 +10,7 @@ A collection of useful dotfiles. Many OS X-specific things, and require certain 
 ### Dependencies from Homebrew
 
 * diff-so-fancy
+* pcre (for pcregrep)
 
 ## Usage
 
