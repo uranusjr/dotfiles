@@ -2,7 +2,13 @@ PATH='/usr/local/sbin':"$HOME/usr/local/bin":$PATH
 
 PS1='\[\033[0;32m\]\u@\h \[\033[1;34m\]\W $ \[\033[m\]'
 if [[ -d "$VIRTUAL_ENV" && -e "$VIRTUAL_ENV/bin/activate" ]]; then
-    VENV=$(pcregrep -o1 'PS1="\((.+)\)\$PS1' "$VIRTUAL_ENV/bin/activate")
+    # venv's activate file.
+    VENV=$(pcregrep -o1 'if \[ "x\((.+)\) " != x \] ; then' "$VIRTUAL_ENV/bin/activate")
+    # virtualenv's activate file.
+    if [[ -z "$VENV" ]]; then
+        VENV=$(pcregrep -o1 'PS1="\((.+)\)\$PS1' "$VIRTUAL_ENV/bin/activate")
+    fi
+    # Wild guess.
     if [[ -z "$VENV" ]]; then
         VENV=$(basename "$VIRTUAL_ENV")
     fi
