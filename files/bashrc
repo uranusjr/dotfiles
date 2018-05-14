@@ -115,13 +115,21 @@ alias fit=git
 maybealias which=gwhich
 maybealias git=hub   # https://hub.github.com
 
-# Pretend this command does not exist.
+# Pretend these do not exist.
 python() {
     PYTHON="$(which python)"
     if [[ "$PYTHON" == /usr/*  ]]; then
         echo "python2 or python3, that is the question" >&2 | echo >/dev/null
     else
         "$PYTHON" "$@"
+    fi
+}
+pip() {
+    PIP="$(which pip)"
+    if [[ "$PIP" == /usr/* ]]; then
+        echo "python2 or python3, that is the question" >&2 | echo >/dev/null
+    else
+        "$PIP" "$@"
     fi
 }
 
