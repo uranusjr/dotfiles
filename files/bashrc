@@ -48,7 +48,7 @@ maybesource() {
 }
 
 maybealias() {
-    if hash $2 2>/dev/null; then
+    if [[ $2 ]]; then
         alias $1=$2
     fi
 }
