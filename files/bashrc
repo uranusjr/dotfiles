@@ -99,7 +99,6 @@ PATH="$HOME/.local/bin:$PATH"
 
 export DOCKERVM=docker-vm
 export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
-export PIP_REQUIRE_VIRTUALENV='true'  # Disable global pip usage altogether.
 
 maybesource "$HOME/.bash_secrets"
 
@@ -125,8 +124,7 @@ maybealias ssh sshrc # https://github.com/Russell91/sshrc
 maybealias nwjs '/Applications/nwjs.app/Contents/MacOS/nwjs'
 maybealias subl '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
 
-# Pretend these do not exist.
-python() {
+python() {  # Pretend global versionless "python" does not exist.
     PYTHON="$(which python)"
     if [[ "$PYTHON" == /usr/*  ]]; then
         echo "python2 or python3, that is the question" >&2 | echo >/dev/null
@@ -134,18 +132,17 @@ python() {
         "$PYTHON" "$@"
     fi
 }
-pip() {
-    PIP="$(which pip)"
-    if [[ "$PIP" == /usr/* ]]; then
-        echo "python2 or python3, that is the question" >&2 | echo >/dev/null
-    else
-        "$PIP" "$@"
-    fi
-}
+export PIP_REQUIRE_VIRTUALENV='true'  # Disable global pip usage altogether.
 
 alias ramdisk='diskutil erasevolume HFS+ RAM `hdiutil attach -nomount ram://2097152`' # 1 GB.
 alias openran='open "$(ls | gshuf -n 1)"'
 alias weather='curl wttr.in/taipei'
+
+mkv2mp4() {
+    INAME="$1"
+    ONAME="$(dirname "$INAME")/$(basename "$INAME" .mkv).mp4"
+    ffmpeg -i "$INAME" -codec copy "$ONAME"
+}
 
 export PGDATA=/usr/local/var/postgres
 
