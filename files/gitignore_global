@@ -9,3 +9,4 @@ CMakeLists.txt.user
 .eggs/
 .python-version
 .venv/
+.venv-*/

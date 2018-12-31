@@ -54,8 +54,8 @@ maybesource() {
 }
 
 maybealias() {
-    if [[ $2 ]]; then
-        alias $1=$2
+    if [[ $(type "$2") ]]; then
+        alias $1="$2"
     fi
 }
 
@@ -98,8 +98,8 @@ PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
 export DOCKERVM=docker-vm
-
 export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
+export PIP_REQUIRE_VIRTUALENV='true'  # Disable global pip usage altogether.
 
 maybesource "$HOME/.bash_secrets"
 
@@ -111,15 +111,19 @@ alias ll='ls -aFhl'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias pbcopy='striptnl | pbcopy'
-alias subl='"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"'
-
 alias gut=git
 alias got=git
 alias fit=git
 
-maybealias which=gwhich
-maybealias git=hub   # https://hub.github.com
+if [[ $(type striptnl) ]]; then
+    alias pbcopy='striptnl | pbcopy'
+fi
+
+maybealias which gwhich
+maybealias git hub   # https://hub.github.com
+maybealias ssh sshrc # https://github.com/Russell91/sshrc
+maybealias nwjs '/Applications/nwjs.app/Contents/MacOS/nwjs'
+maybealias subl '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
 
 # Pretend these do not exist.
 python() {
@@ -139,6 +143,7 @@ pip() {
     fi
 }
 
+alias ramdisk='diskutil erasevolume HFS+ RAM `hdiutil attach -nomount ram://2097152`' # 1 GB.
 alias openran='open "$(ls | gshuf -n 1)"'
 alias weather='curl wttr.in/taipei'
 

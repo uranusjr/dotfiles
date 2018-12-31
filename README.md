@@ -12,6 +12,10 @@ A collection of useful dotfiles. Many OS X-specific things, and require certain 
 * diff-so-fancy
 * pcre (for pcregrep)
 
+### Custom scripts
+
+In `bin`. Link them into PATH as needed.
+
 ## Usage
 
 A simple Python script "linkthem" can be sed to link files into the home directory. Run
