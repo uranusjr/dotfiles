@@ -54,7 +54,7 @@ maybesource() {
 }
 
 maybealias() {
-    if [[ $(type "$2") ]]; then
+    if [[ $(type -t "$2") ]]; then
         alias $1="$2"
     fi
 }
@@ -114,7 +114,7 @@ alias gut=git
 alias got=git
 alias fit=git
 
-if [[ $(type striptnl) ]]; then
+if [[ $(type -t striptnl) ]]; then
     alias pbcopy='striptnl | pbcopy'
 fi
 
