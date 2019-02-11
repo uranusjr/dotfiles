@@ -121,7 +121,7 @@ fi
 
 maybealias which gwhich
 maybealias git hub   # https://hub.github.com
-maybealias ssh sshrc # https://github.com/Russell91/sshrc
+# maybealias ssh sshrc # https://github.com/Russell91/sshrc
 maybealias nwjs '/Applications/nwjs.app/Contents/MacOS/nwjs'
 maybealias subl '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
 
