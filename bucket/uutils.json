@@ -12,7 +12,7 @@
     },
     "bin": [
         "coreutils.exe",
-        ["coreutils.exe", "ls", "ls"],
+        ["coreutils.exe", "ln", "ln"],
         ["coreutils.exe", "mkdir", "mkdir"],
         ["coreutils.exe", "rm", "rm"]
     ]
