@@ -1,3 +1,5 @@
+use plat
+
 # Use epm:install to populate these.
 use github.com/zzamboni/elvish-completions/git
 use github.com/zzamboni/elvish-modules/dir
@@ -16,7 +18,7 @@ after-chdir = [
 edit:prompt = {
     use platform
     hostname = (platform:hostname &strip-domain=$true)
-    styled $E:USER'@'$hostname' ' green
+    styled $plat:user'@'$hostname' ' green
     styled (path-base (tilde-abbr $pwd))' $ ' bright-blue
 }
 edit:rprompt = { nop }

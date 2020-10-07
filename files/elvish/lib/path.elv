@@ -9,16 +9,6 @@ if $platform:is-windows {
     sep = '\'
 }
 
-# The home directory.
-get-home = {
-    if $platform:is-windows {
-        echo $E:USERPROFILE
-    } else {
-        echo $E:HOME
-    }
-}
-home = ($get-home)
-
 # Join a list of component into a path.
 fn join [@parts]{
     str:join $sep $parts
