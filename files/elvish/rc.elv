@@ -1,3 +1,4 @@
+use path
 use plat
 
 # Use epm:install to populate these.
@@ -26,16 +27,12 @@ edit:rprompt = { nop }
 fn cd [@a]{ dir:cd $@a }
 fn pushd [@a]{ dir:push $@a }
 fn popd [@a]{ dir:pop $@a }
+fn pwd [@a]{ echo $pwd }
 
 fn ls [@a]{ lsd --icon=never $@a }
 fn cat [@a]{ bat --plain --color=never $@a }
 
 # Local settings.
-use site
-
-paths = [
-    $@site:_paths
-    $@paths
-]
+-source (path:join (path-dir (src)[name]) 'lib' 'site.elv')
 
 use readline-binding
