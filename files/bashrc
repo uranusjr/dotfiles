@@ -23,7 +23,6 @@ alias pg_run='pg_ctl start'
 alias my_run='mysql.server start'
 alias mongo_run='ulimit -n 2048 && mongod --fork --config /usr/local/etc/mongod.conf'
 alias redis_run='redis-server /usr/local/etc/redis.conf --daemonize yes'
-alias pinknoise='play -t sl -r 8k -c 2 - synth 30:00:00 pinknoise band -n 1200 200 tremolo 20 .1 </dev/zero 2</dev/null'
 if [[ -d /usr/local/Cellar/qt5 ]]; then
     alias qmake5="/usr/local/Cellar/qt5/$(ls /usr/local/Cellar/qt5 | tail -n 1)/bin/qmake"
 fi
@@ -34,10 +33,6 @@ killport() {
 
 set-title() {
     echo -n -e "\033]0;$1\007"
-}
-
-mkvenv() {
-    virtenv --python=${MKVENV_PYTHON:-'3.7'} $@
 }
 
 maybesource() {
