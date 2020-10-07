@@ -1,5 +1,6 @@
 {
     "version": "0.0.1.1",
+    "homepage": "https://github.com/uutils/coreutils",
     "architecture": {
         "64bit": {
             "url": "https://github.com/uutils/coreutils/releases/download/0.0.1.1/coreutils-0.0.1.1-x86_64-pc-windows-msvc.zip",
