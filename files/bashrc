@@ -89,13 +89,15 @@ if 'which' -s rbenv; then eval "$(rbenv init -)"; fi
 
 PATH="$HOME/.cargo/bin:$PATH"
 
-# Configure Pipsi.
+# Configure pipx.
 PATH="$HOME/.local/bin:$PATH"
 
 export DOCKERVM=docker-vm
 export CUTESHOP_EXTRA_SPEC_SOURCES="$HOME/Documents/programming/misc/cuteshop-private/specs/"
 
 maybesource "$HOME/.bash_secrets"
+
+export FLIT_INSTALL_PYTHON=py  # Make Flit venv-aware.
 
 export PIPENV_TIMEOUT=60
 export PIPENV_VENV_IN_PROJECT=1
@@ -121,7 +123,7 @@ maybealias subl '"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl
 
 python() {  # Pretend global versionless "python" does not exist.
     PYTHON="$(which python)"
-    if [[ "$PYTHON" == /usr/*  ]]; then
+    if [[ "$PYTHON" == /usr/* ]]; then
         echo "python2 or python3, that is the question" >&2 | echo >/dev/null
     else
         "$PYTHON" "$@"
