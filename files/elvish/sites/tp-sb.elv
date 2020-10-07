@@ -7,7 +7,13 @@ fn dev [@a]{
     $python $prefix'\devit' $@a
 }
 
-fn open [@a]{ start $@a }
+fn open [p]{
+    use str
+    # explorer.exe returns 1 on seemingly successful operations, not sure what
+    # that means. Let's just swallow it.
+    try { explorer (str:replace '/' '\' $p) } except _ { nop }
+}
+start~ = $open~
 
 fn yarn [@a]{
     node $scoop-apps'\yarn\current\Yarn\bin\yarn.js' $@a
@@ -17,5 +23,4 @@ fn clip [@a]{
     use str
     print (str:trim-space (slurp)) | e:clip
 }
-
 pbcopy~ = $clip~
