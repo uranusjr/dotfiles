@@ -2,6 +2,7 @@ use path
 use plat
 
 # Use epm:install to populate these.
+use github.com/zzamboni/elvish-completions/cd
 use github.com/zzamboni/elvish-completions/git
 use github.com/zzamboni/elvish-modules/dir
 
