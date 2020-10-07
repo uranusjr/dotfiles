@@ -1,0 +1,12 @@
+{
+    "version": "0.14.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://dl.elv.sh/windows-amd64/elvish-v0.14.1.zip"
+        },
+        "32bit": {
+            "url": "https://dl.elv.sh/windows-386/elvish-v0.14.1.zip"
+        }
+    },
+    "bin": [["elvish-v0.14.1.exe", "elvish"]]
+}
