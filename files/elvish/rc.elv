@@ -1,4 +1,5 @@
 # Use epm:install to populate these.
+use github.com/zzamboni/elvish-completions/git
 use github.com/zzamboni/elvish-modules/dir
 
 # Short-hand to set terminal title.
