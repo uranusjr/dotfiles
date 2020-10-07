@@ -12,3 +12,10 @@ fn open [@a]{ start $@a }
 fn yarn [@a]{
     node $scoop-apps'\yarn\current\Yarn\bin\yarn.js' $@a
 }
+
+fn clip [@a]{
+    use str
+    print (str:trim-space (slurp)) | e:clip
+}
+
+pbcopy~ = $clip~
