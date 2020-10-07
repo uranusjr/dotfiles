@@ -1,5 +1,6 @@
 *~
 .DS_Store
+*.code-workspace
 *.sublime-project
 *.sublime-workspace
 .codeintel/
@@ -8,5 +9,12 @@ CMakeLists.txt.user
 .autoenv
 .eggs/
 .python-version
-.venv/
+.venv
+.venv
+.venvs/
 .venv-*/
+.vscode/
+__pycache__/
+__pypackages__/
+.mypy_cache/
+pip-wheel-metadata/
