@@ -15,6 +15,7 @@
         "coreutils.exe",
         ["coreutils.exe", "ln", "ln"],
         ["coreutils.exe", "mkdir", "mkdir"],
+        ["coreutils.exe", "tail", "tail"],
         ["coreutils.exe", "rm", "rm"]
     ]
 }
