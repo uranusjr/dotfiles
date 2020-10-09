@@ -1,7 +1,21 @@
+[include]
+	path = .gitconfig_site/_.properties
 [user]
 	name = Tzu-ping Chung
 	email = uranusjr@gmail.com
 	username = uranusjr
+[credential "https://github.com"]
+    username = uranusjr
+[core]
+	editor = vim
+    excludesfile = ~/.gitignore_global
+	quotepath = false
+[gui]
+	encoding = utf-8
+[i18n "commit"]
+	encoding = utf-8
+[i18n]
+    logoutputencoding = utf-8
 [color]
 	log = auto
 	branch = true
@@ -9,20 +23,10 @@
 	diff = true
 	ui = true
 	interactive = true
-[core]
-	editor = vim
-    excludesfile = ~/.gitignore_global
-	quotepath = false
-[credential]
-    helper = osxkeychain
-[credential "https://github.com"]
-    username = uranusjr
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
-[pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
+[merge]
+	conflictstyle = diff3
+[pull]
+	ff = only
 [push]
 	default = simple
 [alias]
@@ -56,5 +60,3 @@
 	sync = !legit sync
 	switch = !legit switch
 	resync = !legit resync
-[merge]
-	conflictstyle = diff3
