@@ -401,6 +401,7 @@ endfunction
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-github-dashboard'
 Plug 'scrooloose/nerdtree'
+Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
 call plug#end()
 
 " NERDTree
