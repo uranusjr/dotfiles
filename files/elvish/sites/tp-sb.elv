@@ -2,10 +2,10 @@ edit:rprompt = {
     styled ' Windows ' black bg-white
 }
 
-scoop-apps = 'C:\Users\uranusjr\AppData\Local\Programs\Scoop\apps'
+scoop-apps = $E:LOCALAPPDATA'\Programs\Scoop\apps'
 
 fn dev [@a]{
-    prefix = 'C:\Users\uranusjr\Documents\programming\open-project'
+    prefix = $E:USERPROFILE'\Documents\programming\open-project'
     evname = 'cpython-3.8-windows-amd64-44da3294'
     python = $prefix'\.venvs\'$evname'\Scripts\python.exe'
     $python $prefix'\devit' $@a
