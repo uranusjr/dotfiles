@@ -1,3 +1,7 @@
+edit:rprompt = {
+    styled ' Windows ' black bg-white
+}
+
 scoop-apps = 'C:\Users\uranusjr\AppData\Local\Programs\Scoop\apps'
 
 fn dev [@a]{
