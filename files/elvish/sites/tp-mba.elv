@@ -2,10 +2,9 @@ use github.com/zzamboni/elvish-modules/nix
 
 nix:single-user-setup
 
-# Let's bind Nix SSL to pip to save us some trouble updating.
-E:NIX_SSL_CERT_FILE = $E:HOME'/.local/pipx/shared/lib/python3.9/site-packages/pip/_vendor/certifi/cacert.pem'
-
 paths = [
+    $E:HOME/Library/PythonUp/bin
+    $E:HOME/Library/PythonUp/cmd
     $E:HOME/.local/bin
     $E:HOME/.cargo/bin
     /usr/local/bin
