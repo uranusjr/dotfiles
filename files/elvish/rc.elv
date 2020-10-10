@@ -8,11 +8,11 @@ use github.com/zzamboni/elvish-modules/dir
 
 # Short-hand to set terminal title.
 fn title [@a]{ print "\033]0;"$@a"\007" }
-path-base (tilde-abbr $pwd) | title
+title (path-base (tilde-abbr $pwd))
 
 # Set the terminal title on working directory change.
 after-chdir = [
-    [dir]{ tilde-abbr $pwd | title }
+    [dir]{ title (path-base (tilde-abbr $pwd)) }
     $@after-chdir
 ]
 
