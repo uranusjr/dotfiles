@@ -18,3 +18,12 @@ fn join [@parts]{
 fn with-name [orig name]{
     join (path-dir $orig) $name
 }
+
+# On Windows, replace '\' with '/'; no-nop on UNIX.
+fn as-posix [orig]{
+    if $platform:is-windows {
+        str:replace '\' '/' $orig
+    } else {
+        print $orig
+    }
+}

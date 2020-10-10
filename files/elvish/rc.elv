@@ -12,10 +12,13 @@ title (path-base (tilde-abbr $pwd))
 
 print "\e]7;file://"$pwd"\a"
 
-# Set the terminal title on working directory change.
 after-chdir = [
-    [dir]{ title (path-base (tilde-abbr $pwd)) }
-    [dir]{ print "\e]7;file://"$pwd"\a" }
+    [dir]{  # Set title to pwd name.
+        title (path-base (tilde-abbr $pwd))
+    }
+    [dir]{  # Emit OSC 7 for new tab to open here.
+        print "\e]7;file://"(path:as-posix $pwd)"\a"
+    }
     $@after-chdir
 ]
 
