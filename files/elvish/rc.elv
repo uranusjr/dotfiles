@@ -28,6 +28,8 @@ edit:prompt = {
 }
 edit:rprompt = { nop }
 
+E:PIPENV_IGNORE_VIRTUALENVS = true
+
 fn cd [@a]{ dir:cd $@a }
 fn pushd [@a]{ dir:push $@a }
 fn popd [@a]{ dir:pop $@a }
