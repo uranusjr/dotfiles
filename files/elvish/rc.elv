@@ -10,8 +10,6 @@ use github.com/zzamboni/elvish-modules/dir
 fn title [@a]{ print "\033]0;"$@a"\007" }
 title (path-base (tilde-abbr $pwd))
 
-print "\e]7;file://"$pwd"\a"
-
 after-chdir = [
     [dir]{  # Set title to pwd name.
         title (path-base (tilde-abbr $pwd))

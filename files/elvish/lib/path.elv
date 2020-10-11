@@ -24,6 +24,6 @@ fn as-posix [orig]{
     if $platform:is-windows {
         str:replace '\' '/' $orig
     } else {
-        print $orig
+        put $orig
     }
 }
