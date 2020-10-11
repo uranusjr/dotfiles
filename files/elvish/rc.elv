@@ -8,17 +8,18 @@ use github.com/zzamboni/elvish-modules/dir
 
 # Short-hand to set terminal title.
 fn title [@a]{ print "\033]0;"$@a"\007" }
-title (path-base (tilde-abbr $pwd))
+
+fn osc7 [p]{ print "\e]7;file://"(path:as-posix $p)"\a" }
 
 after-chdir = [
-    [dir]{  # Set title to pwd name.
-        title (path-base (tilde-abbr $pwd))
-    }
-    [dir]{  # Emit OSC 7 for new tab to open here.
-        print "\e]7;file://"(path:as-posix $pwd)"\a"
-    }
+    [dir]{ title (path-base (tilde-abbr $pwd)) }
+    [dir]{ osc7 $pwd }
     $@after-chdir
 ]
+
+# Record pwd on startup as well.
+title (path-base (tilde-abbr $pwd))
+osc7 $pwd
 
 # My usual prompt.
 edit:prompt = {
