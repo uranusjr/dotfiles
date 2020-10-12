@@ -13,6 +13,8 @@ fn clip [@a]{
 pbcopy~ = $clip~
 
 paths = [
+    $E:HOME/.local/share/pythonup/bin
+    $E:HOME/.local/share/pythonup/cmd
     $E:HOME/.local/bin
     $E:HOME/.cargo/bin
     $@paths
