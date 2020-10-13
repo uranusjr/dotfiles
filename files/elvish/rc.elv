@@ -7,18 +7,19 @@ use github.com/zzamboni/elvish-completions/git
 use github.com/zzamboni/elvish-modules/dir
 
 # Short-hand to set terminal title.
-fn title [@a]{ print "\033]0;"$@a"\007" }
+fn title [t]{ print "\033]0;"$t"\007" }
+fn title-pwd []{ title (path-base (tilde-abbr $pwd)) }
 
 fn osc7 [p]{ print "\e]7;file://"(path:as-posix $p)"\a" }
 
 after-chdir = [
-    [dir]{ title (path-base (tilde-abbr $pwd)) }
+    [dir]{ title-pwd }
     [dir]{ osc7 $pwd }
     $@after-chdir
 ]
 
 # Record pwd on startup as well.
-title (path-base (tilde-abbr $pwd))
+title-pwd
 osc7 $pwd
 
 # My usual prompt.
@@ -39,6 +40,12 @@ fn pwd [@a]{ echo $pwd }
 
 fn ls [@a]{ lsd --icon=never $@a }
 fn cat [@a]{ bat --plain --color=never $@a }
+
+# Reset terminal title on SSH exit.
+fn ssh [@a]{
+  e:ssh $@a
+  title-pwd
+}
 
 # Avoid Git status code exceptions.
 fn git [@a]{ try { e:git $@a } except _ { nop } }
