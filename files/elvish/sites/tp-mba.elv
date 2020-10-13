@@ -8,6 +8,8 @@ paths = [
     $E:HOME/.local/bin
     $E:HOME/.cargo/bin
     /usr/local/bin
+    /usr/sbin
+    /sbin
     $@paths
 ]
 
