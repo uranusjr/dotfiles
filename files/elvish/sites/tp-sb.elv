@@ -1,5 +1,5 @@
 edit:rprompt = {
-    styled ' Windows ' black bg-white
+    styled-segment ' Windows ' &fg-color=black &bg-color=white
 }
 
 scoop-apps = $E:LOCALAPPDATA'\Programs\Scoop\apps'

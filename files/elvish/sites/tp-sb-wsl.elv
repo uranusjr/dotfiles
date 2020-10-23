@@ -3,7 +3,7 @@ use github.com/zzamboni/elvish-modules/nix
 nix:single-user-setup
 
 edit:rprompt = {
-    styled '  WSL  ' black bg-white
+    styled-segment '  WSL  ' &fg-color=black &bg-color=white
 }
 
 fn clip [@a]{
