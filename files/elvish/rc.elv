@@ -13,8 +13,8 @@ fn title-pwd []{ title (path-base (tilde-abbr $pwd)) }
 fn osc7 [p]{ print "\e]7;file://"(path:as-posix $p)"\a" }
 
 after-chdir = [
-    [dir]{ title-pwd }
     [dir]{ osc7 $pwd }
+    [dir]{ title-pwd }
     $@after-chdir
 ]
 
@@ -43,8 +43,8 @@ fn cat [@a]{ bat --plain --color=never $@a }
 
 # Reset terminal title on SSH exit.
 fn ssh [@a]{
-  e:ssh $@a
-  title-pwd
+    e:ssh $@a
+    title-pwd
 }
 
 # Avoid Git status code exceptions.
