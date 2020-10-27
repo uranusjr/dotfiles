@@ -31,7 +31,10 @@ edit:prompt = {
 }
 edit:rprompt = { nop }
 
+E:LANG = 'en.US.UTF-8'
+E:FLIT_INSTALL_PYTHON = py
 E:PIPENV_IGNORE_VIRTUALENVS = true
+E:PIPENV_VENV_IN_PROJECT = true
 
 fn cd [@a]{ dir:cd $@a }
 fn pushd [@a]{ dir:push $@a }
