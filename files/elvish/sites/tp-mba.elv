@@ -15,8 +15,7 @@ paths = [
 
 fn dev [@a]{
     prefix = $E:HOME'/Documents/programming/open-project'
-    evname = 'cpython-3.9-darwin-x86_64-92e397a3'
-    python = $prefix'/.venvs/'$evname'/bin/python'
+    python = $prefix'/.venv/bin/python'
     $python $prefix'/devit' $@a
 }
 
