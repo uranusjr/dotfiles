@@ -7,10 +7,13 @@ use github.com/zzamboni/elvish-completions/git
 use github.com/zzamboni/elvish-modules/dir
 
 # Short-hand to set terminal title.
-fn title [t]{ print "\033]0;"$t"\007" }
+fn title [t]{ print "\e]0;"$t"\007" }
 fn title-pwd []{ title (path-base (tilde-abbr $pwd)) }
 
 fn osc7 [p]{ print "\e]7;file://"(path:as-posix $p)"\a" }
+
+# ANSI escape sequence to reset terminal.
+fn reset []{ print "\ec" }
 
 after-chdir = [
     [dir]{ osc7 $pwd }
