@@ -34,8 +34,6 @@ edit:prompt = {
 }
 edit:rprompt = { nop }
 
-E:LANG = 'en_US.UTF-8'
-E:LC_ALL = 'en_US.UTF-8'
 E:FLIT_INSTALL_PYTHON = py
 E:PIP_NO_WARN_SCRIPT_LOCATION = true
 E:PIPENV_IGNORE_VIRTUALENVS = true
