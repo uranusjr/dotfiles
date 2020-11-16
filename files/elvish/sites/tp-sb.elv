@@ -28,3 +28,12 @@ fn clip [@a]{
     print (str:trim-space (slurp)) | e:clip
 }
 pbcopy~ = $clip~
+
+E:PIPX_HOME = $E:LOCALAPPDATA'\Programs\pipx'
+E:PIPX_BIN_DIR = $E:PIPX_HOME'\bin'
+
+paths = [
+    $E:PIPX_BIN_DIR
+    $E:LOCALAPPDATA'\bin'
+    $@paths
+]

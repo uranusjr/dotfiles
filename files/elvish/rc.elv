@@ -53,9 +53,6 @@ fn ssh [@a]{
     title-pwd
 }
 
-# Avoid Git status code exceptions.
-fn git [@a]{ try { e:git $@a } except _ { nop } }
-
 # Local settings.
 -source (path:join (path-dir (src)[name]) 'lib' 'site.elv')
 
