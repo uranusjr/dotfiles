@@ -5,17 +5,17 @@
 	email = uranusjr@gmail.com
 	username = uranusjr
 [credential "https://github.com"]
-    username = uranusjr
+	username = uranusjr
 [core]
 	editor = vim
-    excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	quotepath = false
 [gui]
 	encoding = utf-8
 [i18n "commit"]
 	encoding = utf-8
 [i18n]
-    logoutputencoding = utf-8
+	logoutputencoding = utf-8
 [color]
 	log = auto
 	branch = true
@@ -42,8 +42,8 @@
 	uncommit = reset HEAD^
 	br = branch
 	cp = cherry-pick
-    dif = diff
-    bf = "!f() { b=$(git symbolic-ref --short HEAD); git co -q $1; git br -f $b $1; git co $b; }; f" 
+	dif = diff
+	bf = "!f() { b=$(git symbolic-ref --short HEAD); git co -q $1; git br -f $b $1; git co $b; }; f" 
 	rb = rebase
 	graph = log --graph --decorate --oneline --all
 	bb = bitbucket
@@ -52,8 +52,8 @@
 	hub = !hub
 	git = !git
 	gut = !git
-    got = !git
-    satsh = stash
+	got = !git
+	satsh = stash
 	branches = !legit branches
 	graft = !legit graft
 	harvest = !legit harvest

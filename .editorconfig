@@ -1,0 +1,15 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+
+[gitconfig]
+indent_style = tab
+
+[*.properties]
+indent_style = tab
+
+[vimrc]
+indent_style = space
+indent_size = 2
