@@ -8,6 +8,7 @@
 CMakeLists.txt.user
 .autoenv
 .eggs/
+.pdb.toml
 .python-version
 .venv
 .venv
