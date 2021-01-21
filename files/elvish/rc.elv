@@ -10,20 +10,16 @@ use github.com/zzamboni/elvish-modules/dir
 fn title [t]{ print "\033]0;"$t"\007" }
 fn title-pwd []{ title (path-base (tilde-abbr $pwd)) }
 
-fn osc7 [p]{ print "\033]7;file://"(path:as-posix $p)"\007" }
-
 # ANSI escape sequence to reset terminal.
 fn reset []{ print "\033c" }
 
 after-chdir = [
-    [dir]{ osc7 $pwd }
     [dir]{ title-pwd }
     $@after-chdir
 ]
 
 # Record pwd on startup as well.
 title-pwd
-osc7 $pwd
 
 # My usual prompt.
 edit:prompt = {

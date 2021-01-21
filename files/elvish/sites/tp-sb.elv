@@ -4,6 +4,18 @@ edit:rprompt = {
 
 scoop-apps = $E:LOCALAPPDATA'\Programs\Scoop\apps'
 
+# Report current directory to Windows Terminal.
+# https://github.com/microsoft/terminal/issues/3158#issuecomment-764003033
+fn osc99 [p]{ print "\033"']9;9;"'$p'"'"\007" }
+
+after-chdir = [
+    [dir]{ osc99 $pwd }
+    $@after-chdir
+]
+
+# Record pwd on startup as well.
+osc99 $pwd
+
 fn dev [@a]{
     prefix = $E:USERPROFILE'\Documents\programming\open-project'
     evname = 'cpython-3.8-windows-amd64-44da3294'
@@ -18,10 +30,6 @@ fn open [p]{
     try { explorer (str:replace '/' '\' $p) } except _ { nop }
 }
 start~ = $open~
-
-fn yarn [@a]{
-    node $scoop-apps'\yarn\current\Yarn\bin\yarn.js' $@a
-}
 
 fn clip [@a]{
     use str
