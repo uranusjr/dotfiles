@@ -25,8 +25,8 @@ after-chdir = [
 osc99 $pwd
 
 fn dev [@a]{
-    prefix = '/mnt/c/Users/uranusjr/Documents/programming/open-project/'
-    envname = 'cpython-3.9-linux-x86_64-7e404989'
+    prefix = '/mnt/c/Users/uranusjr/Documents/programming/open-project'
+    envname = 'cpython-3.7-linux-x86_64-18fb057a'
     python = $prefix'/.venvs/'$envname'/bin/python'
     $python $prefix'/devit' $@a
 }
