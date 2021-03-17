@@ -12,8 +12,8 @@ edit:rprompt = {
 # Report current directory to Windows Terminal.
 # https://github.com/microsoft/terminal/issues/3158#issuecomment-764003033
 fn osc99 [p]{
-    # Windows Terminal requires Windows path, so we use wsl.exe to convert.
-    print "\033"']9;9;"'(wsl $p)'"'"\007"
+    # Windows Terminal requires Windows path, so we use wslpath to convert.
+    print "\033"']9;9;"'(wslpath -m $p)'"'"\007"
 }
 
 after-chdir = [
@@ -23,6 +23,13 @@ after-chdir = [
 
 # Record pwd on startup as well.
 osc99 $pwd
+
+fn dev [@a]{
+    prefix = '/mnt/c/Users/uranusjr/Documents/programming/open-project/'
+    envname = 'cpython-3.9-linux-x86_64-7e404989'
+    python = $prefix'/.venvs/'$envname'/bin/python'
+    $python $prefix'/devit' $@a
+}
 
 fn clip [@a]{
     use str
