@@ -25,7 +25,7 @@ fn is-readable [p]{
 # Launch a subshell to initialize and run the real nvm.
 # A stopgap to access most nvm functionalities.
 fn in-subshell [@a]{
-    sh --noprofile -c '. '$prefix'/nvm.sh; $@' 'nvm.sh' $@a
+    bash --noprofile --norc -c 'source ~/.nvm/nvm.sh; $@' 'arg0' $@a
 }
 
 # For stuffs not exposed in the top-level...
