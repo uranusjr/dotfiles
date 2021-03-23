@@ -1,7 +1,9 @@
 use github.com/zzamboni/elvish-modules/nix
 
-E:LANG = 'en_US.UTF-8'
-E:LC_ALL = 'en_US.UTF-8'
+E:LANG = 'en_US.utf8'
+E:LC_ALL = 'en_US.utf8'
+
+E:GOPATH = $E:HOME'/.local/share/go'
 
 nix:single-user-setup
 
@@ -42,5 +44,6 @@ paths = [
     $E:HOME/.local/share/pythonup/cmd
     $E:HOME/.local/bin
     $E:HOME/.cargo/bin
+    $E:GOPATH/bin
     $@paths
 ]
