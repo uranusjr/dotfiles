@@ -33,6 +33,13 @@ fn dev [@a]{
     $python $prefix'/devit' $@a
 }
 
+fn open [p]{
+    # explorer.exe returns 1 on seemingly successful operations, not sure what
+    # that means. Let's just swallow it.
+    try { '/mnt/c/Windows/explorer.exe' (wslpath -w $p) } except _ { nop }
+}
+start~ = $open~
+
 fn clip [@a]{
     use str
     print (str:trim-space (slurp)) | e:clip.exe
