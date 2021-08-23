@@ -45,7 +45,8 @@
 	dif = diff
 	bf = "!f() { b=$(git symbolic-ref --short HEAD); git co -q $1; git br -f $b $1; git co $b; }; f" 
 	rb = rebase
-	amend = commit --amend --reuse-message=HEAD
+    amend = commit --amend --reuse-message=HEAD
+    fixup = commit --amend --reuse-message=HEAD
 	graph = log --graph --decorate --oneline --all
 	gr = log --graph --decorate --oneline --all
 	man = help
@@ -68,3 +69,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[gpg]
+	program = C:\\Users\\uranusjr\\AppData\\Local\\Programs\\Scoop\\apps\\git\\current\\usr\\bin\\gpg.exe
