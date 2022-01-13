@@ -1,7 +1,8 @@
 use github.com/zzamboni/elvish-modules/nix
 
-E:LANG = 'en_US.utf8'
-E:LC_ALL = 'en_US.utf8'
+E:LANG=""
+
+E:EDITOR = 'vim'
 
 E:GOPATH = $E:HOME'/.local/share/go'
 
@@ -14,8 +15,7 @@ edit:rprompt = {
 # Report current directory to Windows Terminal.
 # https://github.com/microsoft/terminal/issues/3158#issuecomment-764003033
 fn osc99 [p]{
-    # Windows Terminal requires Windows path, so we use wslpath to convert.
-    print "\033"']9;9;"'(wslpath -m $p)'"'"\007"
+    print "\033"']9;9;"'$p'"'"\007"
 }
 
 after-chdir = [
