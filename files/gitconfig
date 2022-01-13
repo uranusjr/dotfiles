@@ -64,6 +64,7 @@
 	sync = !legit sync
 	switch = !legit switch
 	resync = !legit resync
+	recent-branches = !f() { git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head }
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
