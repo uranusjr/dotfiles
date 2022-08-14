@@ -3,22 +3,20 @@
 use platform
 
 # Username.
-get-user = {
+var user = ({
     if $platform:is-windows {
         echo $E:USERNAME
     } else {
         echo $E:USER
     }
-}
-user = ($get-user)
-username = $user
+})
+var username = $user
 
 # The home directory.
-get-home = {
+var home = ({
     if $platform:is-windows {
         echo $E:USERPROFILE
     } else {
         echo $E:HOME
     }
-}
-home = ($get-home)
+})
