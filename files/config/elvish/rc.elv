@@ -3,8 +3,13 @@ use plat
 
 # Use epm:install to populate these.
 use github.com/zzamboni/elvish-completions/cd
-use github.com/zzamboni/elvish-completions/git
+use github.com/zzamboni/elvish-completions/git git-completions
 use github.com/zzamboni/elvish-modules/dir
+
+set git-completions:git-completions[checkout] = [
+    { git-completions:MODIFIED; git-completions:BRANCHES &all }
+]
+git-completions:init
 
 # Short-hand to set terminal title.
 fn title {|t| print "\033]0;"$t"\007" }
@@ -43,11 +48,9 @@ fn pwd {|@a| echo $pwd }
 fn ls {|@a| lsd --icon=never $@a }
 fn cat {|@a| bat --plain --color=never $@a }
 
-# Reset terminal title on SSH exit.
-fn ssh {|@a|
-    e:ssh $@a
-    title-pwd
-}
+# Reset terminal title on command exit.
+fn docker { |@a| e:docker $@a ; title-pwd }
+fn ssh { |@a| e:ssh $@a ; title-pwd }
 
 # Local settings.
 eval (slurp < (path:join (path:dir (src)[name]) 'lib' 'site.elv'))
