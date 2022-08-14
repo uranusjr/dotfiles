@@ -16,20 +16,22 @@ set paths = [
     $E:HOME/Library/PythonUp/bin
     $E:HOME/Library/PythonUp/cmd
     /opt/homebrew/bin
+    /usr/local/bin
     $@paths
 ]
-
-fn dev {|@a|
-    var prefix = $E:HOME'/Documents/programming/open-project'
-    var python = $prefix'/.venv/bin/python'
-    $python $prefix'/devit' $@a
-}
-
-fn start {|@a| open $@a }
 
 fn pbcopy {|@a|
     use str
     print (str:trim-space (slurp)) | e:pbcopy
 }
 
-var clip~ = $pbcopy~
+edit:add-var clip~ $pbcopy~
+edit:add-var pbcopy~ $pbcopy~
+
+edit:add-var dev~ {|@a|
+    var prefix = $E:HOME'/Documents/programming/open-project'
+    var python = $prefix'/.venv/bin/python'
+    $python $prefix'/devit' $@a
+}
+
+edit:add-var start~ {|@a| open $@a }
