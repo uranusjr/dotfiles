@@ -49,8 +49,8 @@ fn ls {|@a| lsd --icon=never $@a }
 fn cat {|@a| bat --plain --color=never $@a }
 
 # Reset terminal title on command exit.
-fn docker { |@a| e:docker $@a ; title-pwd }
-fn ssh { |@a| e:ssh $@a ; title-pwd }
+fn docker { |@a| try { e:docker $@a } finally { title-pwd } }
+fn ssh { |@a| try { e:ssh $@a } finally { title-pwd } }
 
 # Local settings.
 eval (slurp < (path:join (path:dir (src)[name]) 'lib' 'site.elv'))
