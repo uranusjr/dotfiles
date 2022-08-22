@@ -16,8 +16,11 @@ set paths = [
     $E:HOME/Library/PythonUp/bin
     $E:HOME/Library/PythonUp/cmd
     /opt/homebrew/bin
+    /opt/homebrew/opt/gnu-getopt/bin
     /usr/local/bin
     $@paths
+    /usr/sbin
+    /sbin
 ]
 
 fn pbcopy {|@a|
