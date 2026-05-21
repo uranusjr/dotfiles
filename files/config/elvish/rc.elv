@@ -1,5 +1,6 @@
 use path
 use plat
+use str
 
 # Use epm:install to populate these.
 use github.com/zzamboni/elvish-completions/cd
@@ -19,8 +20,8 @@ fn title-pwd { title (path:base (tilde-abbr $pwd)) }
 fn reset { print "\033c" }
 
 set after-chdir = [
-    {|dir| title-pwd }
     $@after-chdir
+    {|dir| title-pwd }
 ]
 
 # Record pwd on startup as well.
@@ -39,6 +40,10 @@ set E:FLIT_INSTALL_PYTHON = py
 set E:PIP_NO_WARN_SCRIPT_LOCATION = true
 set E:PIPENV_IGNORE_VIRTUALENVS = true
 set E:PIPENV_VENV_IN_PROJECT = true
+set E:PYTHON_BUILD_SKIP_HOMEBREW = true
+ 
+# For Breeze.
+set E:UV_HTTP_TIMEOUT = 600
 
 fn cd {|@a| dir:cd $@a }
 fn pushd {|@a| dir:push $@a }
